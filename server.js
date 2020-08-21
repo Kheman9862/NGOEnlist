@@ -21,9 +21,9 @@ mongoose.connect(
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true
+    useCreateIndex: true,
   },
-  err => {
+  (err) => {
     if (err) {
       console.log(err);
     } else {
@@ -63,7 +63,7 @@ app.get("/community/", (req, res) => {
       console.log(err);
     } else {
       res.render("community", {
-        events: allEvents
+        events: allEvents,
       });
     }
   });
@@ -163,7 +163,7 @@ app.get("/emergency/", (req, res) => {
       console.log(err);
     } else {
       res.render("emergency", {
-        events: allEvents
+        events: allEvents,
       });
     }
   });
@@ -260,7 +260,7 @@ app.get("/environment/", (req, res) => {
       console.log(err);
     } else {
       res.render("environment", {
-        events: allEvents
+        events: allEvents,
       });
     }
   });
@@ -360,7 +360,7 @@ app.get("/neighbourhood/", (req, res) => {
       console.log(err);
     } else {
       res.render("neighbourhood", {
-        events: allEvents
+        events: allEvents,
       });
     }
   });
@@ -457,7 +457,7 @@ app.get("/health/", (req, res) => {
       console.log(err);
     } else {
       res.render("health", {
-        events: allEvents
+        events: allEvents,
       });
     }
   });
@@ -554,7 +554,7 @@ app.get("/education/", (req, res) => {
       console.log(err);
     } else {
       res.render("education", {
-        events: allEvents
+        events: allEvents,
       });
     }
   });
@@ -650,7 +650,7 @@ app.get("/search", (req, res) => {
     {
       // org_title: searchTerm,
       org_title: { $regex: "\\b" + searchTerm + "*", $options: "i" },
-      category_desc: category
+      category_desc: category,
     },
     function (err, allEvents) {
       if (err) {
@@ -659,7 +659,7 @@ app.get("/search", (req, res) => {
         res.render("search", {
           events: allEvents,
           term: searchTerm,
-          category: category
+          category: category,
         });
       }
     }
@@ -726,12 +726,12 @@ app.get("/location", function (req, res) {
         $near: {
           $geometry: {
             type: "Point",
-            coordinates: [searchLongitude, searchLatitude]
+            coordinates: [searchLongitude, searchLatitude],
           },
-          $maxDistance: 500
-        }
+          $maxDistance: 500,
+        },
       },
-      category_desc: category
+      category_desc: category,
     },
     function (err, allEvents) {
       if (err) {
@@ -740,7 +740,7 @@ app.get("/location", function (req, res) {
         res.render("locsearch", {
           events: allEvents,
           location: searchTerm,
-          category: category
+          category: category,
         });
       }
     }
@@ -757,8 +757,9 @@ app.get("/:img", (req, res) => {
 
 //APIs
 const EventRoutes = require("./routes/Event");
+const port = process.env.PORT || 3000;
 app.use("/api", EventRoutes);
-app.listen(3000, err => {
+app.listen(port, (err) => {
   if (err) {
     console.log(err);
   } else {
