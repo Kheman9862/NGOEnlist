@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Emergency Preparedness</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+    <!-- Custom Fonts -->
+    <link
+      href="vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="vendor/simple-line-icons/css/simple-line-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+      rel="stylesheet"
+    />
+    <!-- <link href="css/animate.css" rel="stylesheet" type="text/css" /> -->
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-emergency.css" rel="stylesheet" />
+    <!-- <link href="css/form.css" rel="stylesheet" media="all"> -->
+  </head>
+
+  <body id="page-top">
+    <!-- Navigation -->
+    <a class="menu-toggle rounded" onclick="goBack()">
+      <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- Header -->
+    <section>
+      <header class="masthead d-flex">
+        <div class="container text-center my-auto">
+          <i class="masthead-icon fas fa-first-aid"></i>
+          <h1 class="mb-1">Emergency Preparedness</h1>
+          <h3 class="mb-5">
+            <em> Help people in emergency and train them to help others! </em>
+          </h3>
+          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about"
+            >Take the leap!</a
+          >
+        </div>
+        <div class="overlay"></div>
+      </header>
+    </section>
+
+    <!-- About -->
+    <section class="content-section bg-light" id="about">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h2>Let us help you</h2>
+            <p class="lead mb-5">
+              Enter the name of NGO you have in mind or just select a location
+              near you!
+            </p>
+            <!-- Serach Menu -->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="row d-flex justify-content-around">
+                  <label
+                    ><p class="lead mb-2">
+                      Select NGO by Name
+                    </p></label
+                  >
+                </div>
+                <div class="row d-flex justify-content-around mb-5">
+                  <form class="form-inline" method="post" action="/emergency">
+                    <input
+                      class="form-control form-control-lg"
+                      type="text"
+                      placeholder="Search"
+                      aria-label="Search"
+                      id="searchName"
+                      name="searchLocation"
+                    />
+                    <button type="submit" class="btn-lg">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row d-flex justify-content-around">
+                  <label><p class="lead mb-2">Select Location</p></label>
+                </div>
+                <div class="row d-flex justify-content-around mb-5">
+                  <form action="/locemergency" method="post">
+                    <input
+                      class="form-control form-control-lg"
+                      type="text"
+                      placeholder="Search"
+                      aria-label="Search"
+                      id="searchName"
+                      name="searchLocation"
+                    />
+                    <button type="submit" class="btn-lg">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <a
+              class="btn btn-dark btn-xl js-scroll-trigger"
+              href="#opportunities"
+              >Opportunities</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Opportunities -->
+    <section>
+      <div class="container-fluid" id="opportunities">
+        <h1 class="text-center mb-5">Opportunities</h1>
+        <div class="container">
+          <% events.forEach(function(event){ %>
+          <div class="row opp_container">
+            <div class="col-4">
+              <img
+                src="/<%=event.images%>"
+                alt="<%=event.images%>"
+                id="logo_img"
+              />
+            </div>
+            <div class="col-8 p-3">
+              <h3 class="ngo_name_style mb-1" id="ngo_name">
+                <a href="/emergency/<%= event._id %>"><%= event.org_title%></a>
+              </h3>
+              <p>
+                <i class="fas fa-calendar-day mr-3"></i>
+                <span id="start_date"><%= event.start_date_date%></span> -
+                <span id="end_date"> <%= event.end_date_date%></span>
+              </p>
+              <p>
+                <span id="job_title"
+                  ><strong>Job Title</strong> -
+                  <em><%= event.summary%> </em></span
+                >
+              </p>
+              <p>
+                <i class="fas fa-map-marker-alt mr-2"></i>
+                <span id="locality"> <%=event.locality%> </span>
+              </p>
+              <p>
+                <i class="fas fa-map-pin mr-2"></i>
+                <span id="lattitude"> <%=event.Latitude%> </span>,
+                <span id="longitude"> <%=event.Longitude%> </span>
+              </p>
+              <p>
+                <i class="fab fa-typo3 mr-2"></i>
+                <span id="longitude"> <%=event.recurrence_type%></span>
+                <span class="float-right">
+                  <i class="fab fa-slack-hash mr-2"></i>
+                  <span id="longitude">
+                    <%=event.vol_requests%>
+                  </span>
+                </span>
+              </p>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </section>
+    <!-- Call to Action -->
+    <section class="content-section bg-primary text-white">
+      <div class="container text-center">
+        <h2 class="mb-4">Interested in helping us out</h2>
+        <a href="#" class="btn btn-xl btn-light mr-4">Donate to NGOEnlist!</a>
+        <a href="#" class="btn btn-xl btn-dark">Donate to a NGO!</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+      <div class="container">
+        <ul class="list-inline mb-5">
+          <li class="list-inline-item">
+            <a class="social-link rounded-circle text-white mr-3" href="#">
+              <i class="icon-social-facebook"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="social-link rounded-circle text-white mr-3" href="#">
+              <i class="icon-social-twitter"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="social-link rounded-circle text-white" href="#">
+              <i class="icon-social-github"></i>
+            </a>
+          </li>
+        </ul>
+        <p class="text-muted small mb-0">Copyright &copy; NGOEnlist 2020</p>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Animation library -->
+    <script type="text/javascript" src="js/wow.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/stylish-portfolio.js"></script>
+    <script src="js/global.js"></script>
+  </body>
+</html>

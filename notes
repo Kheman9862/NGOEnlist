@@ -1,0 +1,12 @@
+
+mongodb+srv://root:mongoproject@mongoproject-rkili.mongodb.net/NgoEnlist?retryWrites=true&w=majority
+mongo mongodb+srv://root:mongoproject@mongoproject-rkili.mongodb.net/NgoEnlist?retryWrites=true&w=majority mongo-createLoc.js
+
+mongo "mongodb+srv://mongoproject-rkili.mongodb.net/NgoEnlist"  --username root
+
+mongodb: --host MongoProject-shard-0/mongoproject-shard-00-00-rkili.mongodb.net:27017,mongoproject-shard-00-01-rkili.mongodb.net:27017,mongoproject-shard-00-02-rkili.mongodb.net:27017 --ssl --username root --password mongoproject --authenticationDatabase admin --db NgoEnlist
+
+mongodb://root:mongoproject@cluster0-shard-00-00-rb899.mongodb.net:27017,cluster0-shard-00-01-rb899.mongodb.net:27017,cluster0-shard-00-02-rb899.mongodb.net:27017/NgoEnlist?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin
+
+
+mongoexport --db NgoEnlist  --collection events  --out=events.json 

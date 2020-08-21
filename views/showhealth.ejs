@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Strengthning Community</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link
+      href="/vendor/bootstrap/css/bootstrap.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Custom Fonts -->
+    <link
+      href="/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="/vendor/simple-line-icons/css/simple-line-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+      rel="stylesheet"
+    />
+    <!-- <link href="css/animate.css" rel="stylesheet" type="text/css" /> -->
+
+    <!-- Custom CSS -->
+    <link href="/css/show.css" rel="stylesheet" />
+    <!-- <link href="css/form.css" rel="stylesheet" media="all"> -->
+  </head>
+  <body>
+    <!-- Opportunities -->
+    <section>
+      <div class="container-fluid" id="opportunities">
+        <h1 class="text-center mb-5">Opportunities</h1>
+        <div class="container">
+          <div class="row opp_container">
+            <div class="col-4">
+              <img
+                src="/<%=events.images%>"
+                alt="<%=events.images%>"
+                id="logo_img"
+              />
+            </div>
+            <div class="col-8 p-3">
+              <h3 class="ngo_name_style mb-1" id="ngo_name">
+                <%=events.org_title%>
+              </h3>
+              <p>
+                <i class="fas fa-calendar-day mr-3"></i>
+                <span id="start_date"><%= events.start_date_date%></span> -
+                <span id="end_date"> <%= events.end_date_date%></span>
+              </p>
+              <p>
+                <span id="job_title"
+                  ><strong>Job Title</strong> -
+                  <em><%=events.summary%> </em></span
+                >
+              </p>
+              <p>
+                <i class="fas fa-map-marker-alt mr-2"></i>
+                <span id="locality"> <%=events.locality%> </span>
+              </p>
+              <p>
+                <i class="fas fa-map-pin mr-2"></i>
+                <span id="lattitude"> <%=events.Latitude%> </span>,
+                <span id="longitude"> <%=events.Longitude%> </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <div class="row">
+        <h4>Comments</h4>
+        <div class="col-md-12 border">
+              <% events.comments.forEach(function(comment){ %> 
+                <div class="col-md-12">
+                <p><strong><%= comment.username %></strong> :
+                  <%= comment.text %></p>
+                </div>  
+              <% })%>
+          
+        </div>
+        <div class="col-md-12 mt-5">
+          <a href="/health/<%= events._id %>/comments/new"><button class="btn btn-primary">Add a New Comment</button></a>
+
+        </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="/js/stylish-portfolio.js"></script>
+    <script src="/js/global.js"></script>
+  </body>
+</html>

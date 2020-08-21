@@ -1,0 +1,6 @@
+ Download Node from the internet.
+ Open the code-folder in VS Code.
+ On the terminal  on VS code or open the command prompt and go to the project's file directory.
+ Run command npm install -save. (Doing this will install all the required packages automatically from package.json)
+ Then run the command node server.js.
+ On a browser run localhost:3000.

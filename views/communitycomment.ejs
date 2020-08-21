@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Add new Comment</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+    <!-- Custom Fonts -->
+    <link
+      href="vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="vendor/simple-line-icons/css/simple-line-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+      rel="stylesheet"
+    />
+    <!-- <link href="css/animate.css" rel="stylesheet" type="text/css" /> -->
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-environment.css" rel="stylesheet" />
+    <!-- <link href="css/form.css" rel="stylesheet" media="all"> -->
+  </head>
+
+  <div class="container" style="margin-top: 100px;">
+    <div class="row" >
+       <div class="border mt-25" style="padding: 30px;">
+        <h1 style="text-align: center">Add New Comment to <%= event.org_title %></h1>
+        <div style="width: 50%; margin: 25px auto;">
+            <form class="form-comment" action="/emergency/<%= event._id %>/comments/new" method="POST">
+                <div class="form-group">
+                    <label >Username: </label>
+                    <input class="form-control" type="text" name="username" placeholder="name"></br>
+                    <label>Comment: </label>
+                    <input class="form-control" type="text" name="text" placeholder="enter the comment here">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary">Submit!</button>
+                </div>
+            </form>
+            <a href="/community">Go Back</a>
+        </div>
+       </div>
+    </div>
+</div>
+
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+      </a>
+  
+      <!-- Bootstrap core JavaScript -->
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+      <!-- Plugin JavaScript -->
+      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  
+      <!-- Animation library -->
+      <script type="text/javascript" src="js/wow.js"></script>
+  
+      <!-- Custom scripts for this template -->
+      <script src="js/stylish-portfolio.js"></script>
+      <script src="js/global.js"></script>
+    </body>
+  </html>
+  
